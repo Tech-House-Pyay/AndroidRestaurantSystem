@@ -10,6 +10,7 @@ import android.os.Bundle;
 
 import com.example.foodordering.Adapter.RecyclerAdapter;
 import com.example.foodordering.Adapter.ViewPagerAdapter;
+import com.example.foodordering.models.Data;
 import com.example.foodordering.models.Menu;
 import com.google.android.material.tabs.TabLayout;
 
@@ -19,7 +20,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
     private Toolbar toolbar;
     private RecyclerView recyclerView;
-    private List<Menu> menuList =new ArrayList<>();
+    private List<Data> dataList =new ArrayList<>();
     private RecyclerAdapter adapter;
     private ViewPager viewPager;
     private TabLayout tabLayout;
@@ -41,11 +42,11 @@ public class MainActivity extends AppCompatActivity {
 
     private void setUpAdapter() {
         recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this,LinearLayoutManager.HORIZONTAL,false));
-        menuList.add(new Menu(R.drawable.food,"Fried Chicken",2000));
-        menuList.add(new Menu(R.drawable.drink,"Fried Rice",3000));
-        menuList.add(new Menu(R.drawable.food,"Fried Noodle",2000));
-        menuList.add(new Menu(R.drawable.drink,"Prawn Spicy",7000));
-        adapter=new RecyclerAdapter(MainActivity.this, menuList);
+        dataList.add(new Data(1,new Menu(R.drawable.food,"Fried Chicken",2000)));
+        dataList.add(new Data(1,new Menu(R.drawable.drink,"Fried Rice",2000)));
+        dataList.add(new Data(1,new Menu(R.drawable.food,"Fried Noodle",2000)));
+        dataList.add(new Data(1,new Menu(R.drawable.drink,"Prawn Spicy",2000)));
+        adapter=new RecyclerAdapter(MainActivity.this, dataList);
 
         recyclerView.setAdapter(adapter);
     }

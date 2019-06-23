@@ -11,8 +11,7 @@
         app:cardCornerRadius="10dp"
         android:layout_margin="10dp"
         >
-        <LinearLayout
-            android:orientation="vertical"
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -21,24 +20,31 @@
                 android:id="@+id/FoodImage"
                 android:layout_width="wrap_content"
                 android:layout_height="100dp"
-                android:layout_gravity="center">
-            <TextView
-                android:id="@+id/foodName"
+                android:layout_gravity="center"/>
+            <LinearLayout
+                android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/colorText"
-                android:gravity="center"
-                android:layout_gravity="center"
-                />
-            <TextView
-                android:id="@+id/foodPrice"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:layout_gravity="center"
-                android:textColor="@color/colorText"/>
-            </ImageView>
-        </LinearLayout>
+                android:layout_below="@+id/FoodImage"
+                android:gravity="bottom|end"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/foodName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    />
+                <TextView
+                    android:id="@+id/foodPrice"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    />
+
+            </LinearLayout>
+
+        </RelativeLayout>
 
     </androidx.cardview.widget.CardView>
 

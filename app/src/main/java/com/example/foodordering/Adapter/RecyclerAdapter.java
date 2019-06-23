@@ -21,11 +21,11 @@ import java.util.List;
 public class RecyclerAdapter  extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private Context context;
-    private List<Menu> menuList;
+    //private List<Menu> menuList;
     private List<Data> dataList;
-    public RecyclerAdapter(Context context, List<Menu> menuList) {
+    public RecyclerAdapter(Context context, List<Data> dataList) {
         this.context=context;
-        this.menuList = menuList;
+        this.dataList = dataList;
     }
 
     @NonNull
@@ -56,16 +56,16 @@ public class RecyclerAdapter  extends RecyclerView.Adapter<RecyclerView.ViewHold
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         Data data = dataList.get(position);
         Menu menu=data.menu;
-        switch (position){
+        switch (data.type){
             case 0:
                 ((FoodViewHolder)holder).foodName.setText(menu.Food_name);
-                ((FoodViewHolder)holder).foodPrice.setText(menu.Food_price);
+                ((FoodViewHolder)holder).foodPrice.setText(menu.Food_price+"");
                 Glide.with(context).load(menu.Food_image).into(((FoodViewHolder) holder).foodImage);
                 break;
 
             case 1:
                 ((PopularFoodViewHolder)holder).foodName.setText(menu.Food_name);
-                ((PopularFoodViewHolder)holder).foodPrice.setText(menu.Food_price);
+                ((PopularFoodViewHolder)holder).foodPrice.setText(menu.Food_price+"");
                 Glide.with(context).load(menu.Food_image).into(((PopularFoodViewHolder) holder).foodImage);
                 break;
         }
@@ -78,11 +78,11 @@ public class RecyclerAdapter  extends RecyclerView.Adapter<RecyclerView.ViewHold
         return dataList.size();
     }
 
-    public static class FoodViewHolder extends RecyclerView.ViewHolder{
+     class FoodViewHolder extends RecyclerView.ViewHolder{
         private ImageView foodImage;
         private TextView foodName,foodPrice;
 
-        public FoodViewHolder(@NonNull View itemView) {
+        FoodViewHolder(@NonNull View itemView) {
             super(itemView);
             foodImage=itemView.findViewById(R.id.FoodImage);
             foodName=itemView.findViewById(R.id.foodName);
@@ -90,11 +90,11 @@ public class RecyclerAdapter  extends RecyclerView.Adapter<RecyclerView.ViewHold
         }
     }
 
-    public static class PopularFoodViewHolder extends RecyclerView.ViewHolder{
+     class PopularFoodViewHolder extends RecyclerView.ViewHolder{
         private ImageView foodImage;
         private TextView foodName,foodPrice;
 
-        public PopularFoodViewHolder(@NonNull View itemView) {
+        PopularFoodViewHolder(@NonNull View itemView) {
             super(itemView);
             foodImage=itemView.findViewById(R.id.FoodImage);
             foodName=itemView.findViewById(R.id.foodName);

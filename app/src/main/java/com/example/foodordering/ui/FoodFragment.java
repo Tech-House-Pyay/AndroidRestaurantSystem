@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.foodordering.Adapter.RecyclerAdapter;
 import com.example.foodordering.R;
+import com.example.foodordering.models.Data;
 import com.example.foodordering.models.Menu;
 
 import java.util.ArrayList;
@@ -22,7 +23,7 @@ import java.util.List;
 public class FoodFragment extends Fragment {
     private RecyclerView recyclerView;
     private RecyclerAdapter adapter;
-    private List<Menu> menuList =new ArrayList<>();
+    private List<Data> dataList =new ArrayList<>();
 
 
     @Override
@@ -39,11 +40,11 @@ public class FoodFragment extends Fragment {
 
         recyclerView=view.findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(),2));
-        menuList.add(new Menu(R.drawable.food,"Fried Chicken",2000));
-        menuList.add(new Menu(R.drawable.drink,"Fried Rice",2000));
-        menuList.add(new Menu(R.drawable.food,"Fried Noodle",2000));
-        menuList.add(new Menu(R.drawable.drink,"Prawn Spicy",2000));
-        adapter=new RecyclerAdapter(getContext(), menuList);
+        dataList.add(new Data(0,new Menu(R.drawable.food,"Fried Chicken",2000)));
+        dataList.add(new Data(0,new Menu(R.drawable.drink,"Fried Rice",2000)));
+        dataList.add(new Data(0,new Menu(R.drawable.food,"Fried Noodle",2000)));
+        dataList.add(new Data(0,new Menu(R.drawable.drink,"Prawn Spicy",2000)));
+        adapter=new RecyclerAdapter(getContext(), dataList);
 
         recyclerView.setAdapter(adapter);
     }
