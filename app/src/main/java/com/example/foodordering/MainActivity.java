@@ -6,12 +6,15 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import com.example.foodordering.Adapter.RecyclerAdapter;
 import com.example.foodordering.Adapter.ViewPagerAdapter;
 import com.example.foodordering.models.Data;
 import com.example.foodordering.models.Menu;
+import com.example.foodordering.ui.FoodDetailActivity;
 import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
@@ -49,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
         adapter=new RecyclerAdapter(MainActivity.this, dataList);
 
         recyclerView.setAdapter(adapter);
+
     }
 
     private void initView() {

@@ -38,6 +38,7 @@ public class FoodFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        dataList.clear();
         recyclerView=view.findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(),2));
         dataList.add(new Data(0,new Menu(R.drawable.food,"Fried Chicken",2000)));
